@@ -72,7 +72,8 @@ public class Questions1Servlet extends HttpServlet {
 		respostas = request.getParameterValues("resposta");
 		
 		//Aqui era de onde eu estava tentando capturar as respostas das 5 primeiras perguntas
-		//para enviá-las para o AnswersServlet, mas por algum motivo a página de respostas não responde
+		//para enviá-las para o AnswersServlet, mas por algum motivo a página de respostas para de funcionar.
+		//Sendo assim eu só consigo contabilizar as 5 perguntas da Página 2, e nenhuma da Página 1.
 		//na linha 51 do AnswersServlet eu explico melhor
 		request.setAttribute("atributoRespostas", respostas);
 		request.getSession().setAttribute("respostas", respostas);
