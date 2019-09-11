@@ -36,37 +36,40 @@ public class Questions2Servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html");
+		
 		PrintWriter out = response.getWriter();
 		
 		out.println("<html><body>");
 		
 		out.println("<form action=\"AnswersServlet\" method=\"POST\">"
 				+ "Pergunta 6: <br>"
-				+ "<select name=\"resposta\">\r\n" + 
+				+ "<select name=\"resposta2\">\r\n" + 
 				"		<option>Sim</option>\r\n" + 
 				"		<option>Nao</option>\r\n" + 
 				"		<option>Nao Sei</option>"
 				+ "</select>"
 				+ "<br><br>Pergunta 7: <br>"
-				+ "<select name=\"resposta\">\r\n" + 
+				+ "<select name=\"resposta2\">\r\n" + 
 				"		<option>Sim</option>\r\n" + 
 				"		<option>Nao</option>\r\n" + 
 				"		<option>Nao Sei</option>"
 				+ "</select>"
 				+ "<br><br>Pergunta 8: <br>"
-				+ "<select name=\"resposta\">\r\n" + 
+				+ "<select name=\"resposta2\">\r\n" + 
 				"		<option>Sim</option>\r\n" + 
 				"		<option>Nao</option>\r\n" + 
 				"		<option>Nao Sei</option>"
 				+ "</select>"
 				+ "<br><br>Pergunta 9: <br>"
-				+ "<select name=\"resposta\">\r\n" + 
+				+ "<select name=\"resposta2\">\r\n" + 
 				"		<option>Sim</option>\r\n" + 
 				"		<option>Nao</option>\r\n" + 
 				"		<option>Nao Sei</option>"
 				+ "</select>"
 				+ "<br><br>Pergunta 10: <br>"
-				+ "<select name=\"resposta\">\r\n" + 
+				+ "<select name=\"resposta2\">\r\n" + 
 				"		<option>Sim</option>\r\n" + 
 				"		<option>Nao</option>\r\n" + 
 				"		<option>Nao Sei</option>"
@@ -78,6 +81,29 @@ public class Questions2Servlet extends HttpServlet {
 		
 		
 		out.println("</body></html>");
+		
+		String[] respostaspg1 = request.getParameterValues("resposta1");
+		
+		int respostasPositivas = 0;
+		int respostasNegativas = 0;
+		
+		for (String x : respostaspg1) {
+
+			if (x.equalsIgnoreCase("Sim")) {
+				respostasPositivas++;
+			} else if (x.equalsIgnoreCase("Nao")) {
+				respostasNegativas++;
+			}
+
+		}
+
+		
+		request.setAttribute("respPositivasPg1", respostasPositivas);
+		request.setAttribute("respNegativasPg1", respostasNegativas);
+		
+		
+		
+		
 	}
 	}
 

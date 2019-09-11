@@ -42,18 +42,21 @@ public class AnswersServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
 		out.println("<html><body>");
 
-		String[] respostasPagina2 = request.getParameterValues("resposta");
+		// String[] respostasPagina1= request.getParameterValues("resposta1");
+		//int respostasPositivasPagina1 = (int) request.getAttribute("respPositivasPg1");
+		//int respostasNegativasPagina1 = (int) request.getAttribute("respNegativasPg1");
 
-//		** Professor, aqui eu estava tentando capturar os dados da primeira página com as respostas das 5 primeiras perguntas,
-//		tentei dos 2 jeitos abaixo, mas a página de respostas simplesmente parava de funcionar, vou continuar tentando
-// 		para ver se consigo descobrir o problema.
+		String[] respostasPagina2 = request.getParameterValues("resposta2");
 
-//		String[] respostasPagina1 = (String[]) request.getAttribute("atributoRespostas");
-//		String[] respostasPagina1 = (String[])request.getSession().getAttribute("respostas");
+		// String[] respostasPagina1 = (String[])
+		// request.getAttribute("atributoRespostas");
+		// String[] respostasPagina1 = (String[])
+		// request.getSession().getAttribute("respostas");
 
 //		for (String x : respostasPagina1) {
 //
@@ -74,8 +77,9 @@ public class AnswersServlet extends HttpServlet {
 
 		}
 
-		out.println("<h2>Resultados das Respostas</h2>" + "Respostas Positivas: " + respostasPositivas + "<br><br>"
-				+ "Respostas Negativas: " + respostasNegativas);
+		out.println("<h2>Resultados das Respostas</h2>" + "Respostas Positivas: "
+				+ respostasPositivas + "<br><br>" + "Respostas Negativas: "
+				+ respostasNegativas);
 
 		respostasPositivas = 0;
 		respostasNegativas = 0;
